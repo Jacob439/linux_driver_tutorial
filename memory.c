@@ -2,7 +2,7 @@
 
 #include <linux/init.h>
 
-#include <linux/config.h>
+//#include <linux/config.h>
 
 #include <linux/module.h>
 
@@ -20,7 +20,7 @@
 
 #include <linux/fcntl.h> /* O_ACCMODE */
 
-#include <asm/system.h> /* cli(), *_flags */
+//#include <asm/system.h> /* cli(), *_flags */
 
 #include <asm/uaccess.h> /* copy_from/to_user */
 
@@ -38,7 +38,7 @@ int memory_release(struct inode *inode, struct file *filp);
 
 ssize_t memory_read(struct file *filp, char *buf, size_t count, loff_t *f_pos);
 
-ssize_t memory_write(struct file *filp, char *buf, size_t count, loff_t *f_pos);
+ssize_t memory_write(struct file *filp, const char *buf, size_t count, loff_t *f_pos);
 
 void memory_exit(void);
 
@@ -210,7 +210,7 @@ ssize_t memory_read(struct file *filp, char *buf,
 }
 
 
-ssize_t memory_write( struct file *filp, char *buf,
+ssize_t memory_write( struct file *filp, const char *buf,
 
                       size_t count, loff_t *f_pos) {
 
